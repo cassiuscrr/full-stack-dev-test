@@ -1,6 +1,6 @@
 <?php
 /**
-CREATE TABLE `product` (
+CREATE TABLE product (
 	id int(11) NOT NULL,
 	name varchar(120) NOT NULL,
 	amount bigint(11) NOT NULL,
