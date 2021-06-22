@@ -1,47 +1,197 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-	<title>Produtos</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  </head>
-  <style>
-  
-  </style>
-  <body>
-	<section class="box-loading">
+	<head>
+		<title>Produtos</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		<link href="./css/main.css" rel="stylesheet" />
+	</head>
+	<body>
+		<section class="box-loading">
+			<div class="loader"></div>
+		</section>
+		<section class="box-navegation">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">Web Dev Academy</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Inicio</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link" href="#">Opções</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link" href="#">Perfil</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Ajuda</a>
+						</li>
+					</ul>
+					</div>
+				</div>
+			</nav>
+		</section>
+		<section class="box-main">
+			<div class="container-fluid">
+				<div class="container py-4">
+					<div class="row g-2 justify-content-md-center mb-4">
+						<div class="col">
+							<h3>Produtos</h3>
+						</div>
+						<div class="col-auto">
+							<div class="input-group">
+								<input type="text" class="form-control search-box" placeholder="" aria-label="" aria-describedby="button">
+								<button class="btn btn-primary btn-search" type="button">Pesquisar</button>
+							</div>
+						</div>
+						<div class="col-auto">
+							<button type="button" class="btn btn-primary btn-new">Novo</button>
+						</div>
+					</div>
+					<div class="not_result d-none justify-content-center h-50">
+						<h3>Nenhum registro para ser exibido</h3>
+					</div>
+					<div class="has_result d-none">
+						<div class="row border-bottom">
+							<div class="col-1 fw-bolder p-2">ID</div>
+							<div class="col-5 fw-bolder p-2">Produtos</div>
+							<div class="col-6 col-md-2 fw-bolder p-2">Valor</div>
+							<div class="col-12 col-md-4 fw-bolder p-2"></div>
+						</div>
+						<div id="table-itens">
+							<div class="row align-items-center border-bottom">
+								<div class="col-1 p-2">[[id]]</div>
+								<div class="col-5 col-md-5 p-2">[[name]]</div>
+								<div class="col-6 col-md-2 p-2">[[amount_format]]</div>
+								<div class="col-12 col-md-4 p-2">
+									<div class="btn-group w-100" role="group">
+										<button type="button" class="btn btn-primary btn-view" data-id="[[id]]">Visualizar</button>
+										<button type="button" class="btn btn-success btn-edit" data-id="[[id]]">Editar</button>
+										<button type="button" class="btn btn-danger btn-delete" data-id="[[id]]">Excluir</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-	<a class="navbar-brand" href="#">Web Dev Academy</a>
-	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	  <span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarNav">
-	  <ul class="navbar-nav">
-		<li class="nav-item">
-		  <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-		</li>
-		<li class="nav-item">
-		  <a class="nav-link" href="#">Opções</a>
-		</li>
-		<li class="nav-item">
-		  <a class="nav-link" href="#">Perfil</a>
-		</li>
-		<li class="nav-item">
-		  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Ajuda</a>
-		</li>
-	  </ul>
-	</div>
-  </div>
-</nav>
-		
-	</section>
-	<section class="box-navegation"></section>
-	<section class="box-main"></section>
-	<section class="box-footer"></section>
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-  </body>
+		<div class="modal" id="modal_new" tabindex="-1">
+			<div class="modal-dialog">
+				<form class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Cadastrar Novo Produto</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label for="input_new__name" class="form-label">Nome do Produto</label>
+							<input type="text" class="form-control" name="name" id="input_new__name" placeholder="" required>
+						</div>
+						<div class="mb-3">
+							<label for="input_new__amount" class="form-label">Valor: </label>
+							<input type="text" class="form-control input__money" name="amount" id="input_new__amount" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-primary">Cadastrar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="modal" id="modal_view" tabindex="-1">
+			<div class="modal-dialog">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title">Visualizar Produto</h5>
+				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<label class="form-label">Nome do Produto</label>
+						<input type="text" class="form-control" name="name" disabled >
+					</div>
+					<div class="mb-3">
+						<label  class="form-label">Valor: </label>
+						<input type="text" class="form-control input__money" name="amount" disabled >
+					</div>
+					<div class="mb-3">
+						<label  class="form-label">Criado em: </label>
+						<input type="datetime-local" class="form-control" name="created" disabled >
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+		  <div class="modal" id="modal_edit" tabindex="-1">
+			<div class="modal-dialog">
+			  <form class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title">Editar Produto</h5>
+				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<label class="form-label">Nome do Produto</label>
+						<input type="text" class="form-control" name="name" >
+					</div>
+					<div class="mb-3">
+						<label  class="form-label">Valor: </label>
+						<input type="text" class="form-control input__money" name="amount" >
+					</div>
+					<div class="mb-3">
+						<label  class="form-label">Criado em: </label>
+						<input type="datetime-local" class="form-control" name="created" disabled>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  <button type="submit" class="btn btn-success">Salvar</button>
+				</div>
+				<input type="hidden" class="form-control" name="id" >
+			</form>
+			</div>
+		  </div>
+
+		  <div class="modal" id="modal_delete" tabindex="-1">
+			<div class="modal-dialog">
+			  <form class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title">Confirmação de Exclusão</h5>
+				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<label class="form-label">Nome do Produto</label>
+						<input type="text" class="form-control" name="name" disabled>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  <button type="submit" class="btn btn-danger">Excluir</button>
+				</div>
+				<input type="hidden" class="form-control" name="id" >
+			</form>
+			</div>
+		  </div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/jquery.mask.min.js"></script>
+		<script src="./js/jquery.miranda.min.js"></script>
+		<script src="./js/index.js"></script>
+	</body>
 </html>
